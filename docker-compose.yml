@@ -64,10 +64,10 @@ services:
       context: . # flower это библиотека, у неё нет образа, берём из основного билда
     container_name: candle_flower
     # Если не работает эта команда, используйте закомментированную
-    command: ["/candle/docker/celery.sh", "flower"]
+    # command: ["/candle/docker/celery.sh", "flower"]
     # command: sh -c "celery --app=app.tasks.celery:celery flower"
     # При запуске через nginx необходимо запускать команду ниже для корректной работы js и css
-    # command: sh -c "celery --app=app.tasks.celery:celery flower --url_prefix=/flower"
+    command: sh -c "celery --app=app.tasks.celery:celery flower --url_prefix=/flower"
     env_file:
       - .env-non-dev
     depends_on:
