@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Candles</title>
+</head>
+<body>
+    <div>
+        {% for candle in candles %}
+        <div style="display:flex; margin-bottom: 50px; margin-left: 30px;">
+            <img src="{{url_for('static', path='images/' + candle.image_id | string + '.webp')}}"
+                 alt="Изображение свечи" width="400">
+            <div style="margin-left: 50px;">
+                <h1>{{candle.name}}</h1>
+                <h4>{{candle.description}}</h4>
+                <h4>Цена {{candle.price}}</h4>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>>
+</body>
+</html>
+
